@@ -1,0 +1,94 @@
+import java.util.Scanner;
+import java.util.Vector;
+
+public class punto_burbuja {
+
+    public static void main(String[] args) {
+        Scanner datos = new Scanner(System.in);
+
+        int elementos;
+        int numero_array;
+        int temp=0;
+        System.out.println("Ingrese el tamaño del vector: ");
+
+        elementos= datos.nextInt();
+
+        int[] Vector = new int[elementos];
+
+        for (int i=0; i<elementos;i++){
+
+            System.out.println("Ingrese un número: ");
+            Vector[i]=datos.nextInt();
+
+        }
+
+        for (int i=0; i<elementos-1; i++)
+        {
+            if (Vector[i] > Vector[i+1])
+            {
+
+                int temp1 = Vector[i];
+                Vector[i] = Vector[i+1];
+                Vector[i+1] = temp1;
+            }
+        }
+        System.out.println("=====VECTOR ORDENADO======");
+
+        for (int l=0; l<elementos;l++){
+
+            System.out.print("|"+ Vector[l]+"|");
+        }
+
+
+
+
+        System.out.println("\n=====NUMEROS PRIMOS======");
+
+        for (int j=0; j<elementos;j++){
+            if(primos(Vector[j])){
+                System.out.print("|"+ Vector[j]+"|");
+            }
+
+
+        }
+
+        System.out.println("\n=====NUMEROS PARES======");
+
+        for (int k=0; k<elementos;k++) {
+            if (pares(Vector[k])) {
+                System.out.print("|"+ Vector[k]+"|");
+            }
+
+        }
+
+
+
+    }
+
+
+
+
+    ////////////////////////////////////////////////////////
+    public static boolean pares(int num){
+
+        return num % 2 == 0;
+    }
+
+    public static boolean primos(int num){
+
+        if(num==1){
+            return false;
+        }
+
+        for(int i=2; i<num;i++){
+
+            if (num%i==0){
+                return false;
+            }
+        }
+        return true;
+
+    }
+
+
+}
